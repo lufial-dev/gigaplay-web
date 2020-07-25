@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', 'Controller@index');
-Route::get('{servico}/{id}', 'Controller@player_video')->name('videos');
+Auth::routes();
 
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
