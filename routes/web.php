@@ -17,4 +17,11 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/', 'HomeController@index')->name('home');
+
+Route::get('/servicos/listar', 'ServicoController@listar')->name('servico.listar');
+
+Route::get('/categorias/listar/{servico_id}', 'CategoriaController@listar_por_servico')->name('categoria.listar.servico');
+
+Route::post('/conteudo/store', 'ConteudoController@store')->name('conteudo.store');

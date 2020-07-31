@@ -1,3 +1,7 @@
+@php
+    $permissaoConteudo = $user->permissaoConteudo();
+@endphp
+
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
 </button>
@@ -12,6 +16,32 @@
         <li class="nav-item">
             <a class="nav-link" href="#">Filmes</a>
         </li>
+
+        @if($user->tipo == "Funcionário")
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Opções de Administrador
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Gerenciar Clientes</a>
+
+                    <a class="dropdown-item" href="#">Gerenciar Funcionários</a>
+
+                    <a class="dropdown-item" href="#">Gerenciar Servicos</a>
+
+                    <a class="dropdown-item" href="#">Gerenciar Categorias</a>
+
+                    @if($permissaoConteudo->ver)
+                        <a class="dropdown-item" href="#">Gerenciar Conteúdos</a>
+                    @endif
+
+                    <a class="dropdown-item" href="#">Gerenciar Grupos e Permissões</a>
+
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+        @endif
     </ul>
 
     <form class="form-inline my-2 my-lg-0">
@@ -20,15 +50,25 @@
             <input class="bg-black border-search" type="search" placeholder="Buscar..." aria-label="Search">
         </div>                  
     </form>
-
-    <ul class="mr-5 navbar-nav">
+    
+    <ul class="navbar-nav">
+        @if($user->tipo == "Funcionário" && $permissaoConteudo->adicionar)
+            <li class="nav-item">
+                <button id="btn-add-conteudo" class="btn btn-primary btn-sm mt-2 mr-3 ml-4" title="Adicionar conteúdo" data-toggle="modal" data-target="#addConteudoModal">
+                    <i class="fa fa-upload"></i>
+                </button>
+            </li>
+        @endif
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <img class="image-user rounded-circle" src="{{ URL('images/default-profile.png') }}" alt="Perfil" width=150>
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <p class="dropdown-item">{{ $user->nome }}<p>
+                <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Configurações</a>
-            <div class="dropdown-divider"></div>
+            
                 <a class="dropdown-item" href="#"
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         {{ __('Sair') }}
@@ -41,3 +81,6 @@
         </li>
     </ul>
 </div>
+
+@include('modals.conteudo.create')
+
