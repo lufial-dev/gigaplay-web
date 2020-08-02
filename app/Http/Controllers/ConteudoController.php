@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ConteudoRequest;
+use File;
+
 use App\Conteudo;
 use App\Servico;
 
@@ -43,7 +45,7 @@ class ConteudoController extends Controller
         }
         
         $response["sucesso"] = true;
-
+        
         $conteudo = new Conteudo();
 
         $conteudo->categoria_id = $categoria;
@@ -53,9 +55,12 @@ class ConteudoController extends Controller
         $conteudo->classificacao = 0;
         $conteudo->imagem = $imagem->store("conteudos/imagens");
 
-        $conteudo->save();
-    
-        $response["tipo"] = $tipo;
+        if(!$conteudo->save()){
+            $response["sucesso"] = false;
+            $repsonse["mensagem"] = "Erro ao cadastar conteúdo. <br> Verique os dados e tente novamente.";
+            File::delete(storage_path($conteudo->imagem));
+            File::delete(storage_path($conteudo->diretorio));
+        }
         
         echo json_encode($response);
         

@@ -81,6 +81,9 @@
             var div_errors = $('#errors');
             div_errors.addClass("d-none");
 
+            var div_success = $('#success');
+            div_success.addClass("d-none");
+
             $("#select-servico").html('<option value="-1" selected disabled>Selecione...</option>');
             
             $.ajax({
@@ -123,9 +126,6 @@
                         }
                         
                         $("#select-categoria").removeAttr('disabled');
-                        
-                        
-                        
                     }
                 },
             });
