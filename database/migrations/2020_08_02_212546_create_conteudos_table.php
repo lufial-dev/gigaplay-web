@@ -19,9 +19,13 @@ class CreateConteudosTable extends Migration
             $table->string('descricao');
             $table->string('diretorio')->unique();
             $table->Integer('classificacao')->nulable();
-            $table->string('imagem')->unique();
+            $table->string('imagem')->unique(); 
+            $table->integer('visualizacoes')->default(0);
             $table->unsignedBigInteger('categoria_id');
+            $table->unsignedBigInteger('genero_id')->nullable();
+           
 
+            $table->foreign('genero_id')->references('id')->on('generos')->onDelete('cascade');
             $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('cascade');
             $table->timestamps();
         });

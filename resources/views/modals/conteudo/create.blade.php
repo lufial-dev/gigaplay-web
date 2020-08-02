@@ -35,11 +35,21 @@
                         </select>
                     </div>
 
+                    <div class="col">
+                        <label>Gênero</label>
+                        <select name="genero" id="select-genero" class="form-control" disabled>
+                            <option value="-1" selected disabled>Selecione...</option>
+                        </select>
+                    </div>
+                    
+
+                </div>
+
+                <div class="row">
                     <div class= "col">
                         <label>Titulo:</label>
                         <input class="form-control" type="text" name="titulo" id="input-titulo" disabled/>
                     </div>
-
                 </div>
 
                 <div class="row">
@@ -129,6 +139,27 @@
                     }
                 },
             });
+
+            var rota = "{{ route('genero.listar.servico', ['servico_id' => '_servico_id_' ]) }}".replace('_servico_id_', servico_id);
+            
+            $("#select-genero").html('<option value="-1" selected disabled>Selecione...</option>');
+            
+
+            $.ajax({
+                url: rota,
+                type: "get",
+                dataType: 'json',
+                success: function(response){
+                    if(response.sucesso){
+                        for(var genero in response.generos){
+                            var str = "<option value=".concat(response.generos[genero].id).concat(">").concat(response.generos[genero].nome).concat("</option");
+                            $("#select-genero").html(
+                                $("#select-genero").html().concat(str)
+                            );
+                        }                        
+                    }
+                },
+            });
         });
 
         $('#select-categoria').on('change', function () {
@@ -136,6 +167,7 @@
             $('#input-descricao').removeAttr('disabled');
             $('#input-conteudo').removeAttr('disabled');
             $('#input-imagem').removeAttr('disabled');
+            $('#select-genero').removeAttr('disabled');
         });
 
         $('#form-cadastrar-conteudo').on('submit', function(event){

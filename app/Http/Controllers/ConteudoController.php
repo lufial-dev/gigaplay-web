@@ -22,6 +22,7 @@ class ConteudoController extends Controller
         $titulo = $request->titulo;
         $descricao = $request->descricao;
         $conteudo_field = $request->conteudo;
+        $genero = $request->genero;
         $imagem = $request->imagem;
 
 
@@ -32,13 +33,13 @@ class ConteudoController extends Controller
             return;
         }
         
-        if($tipo->nome == "Vídeos" && (!$conteudo_field->isValid() || !in_array($conteudo_field->extension(), $extensoes_video))){
+        if($tipo == "Vídeos" && (!$conteudo_field->isValid() || !in_array($conteudo_field->extension(), $extensoes_video))){
             $response["sucesso"] = false;
             $response["mensagem"] = "Erro ao carregar a Vídeo. <br> Tente novamente e verifique se a extenssão é mp4 ou wmv.";
             return;
         }
 
-        if($tipo->nome == "Músicas" && (!$conteudo_field->isValid() || !in_array($conteudo_field->extension(), $extensoes_musica))){
+        if($tipo == "Músicas" && (!$conteudo_field->isValid() || !in_array($conteudo_field->extension(), $extensoes_musica))){
             $response["sucesso"] = false;
             $response["mensagem"] = "Erro ao carregar a Música. <br> Tente novamente e verifique se a extenssão é mp3.";
             return;
@@ -51,8 +52,9 @@ class ConteudoController extends Controller
         $conteudo->categoria_id = $categoria;
         $conteudo->titulo = $titulo;
         $conteudo->descricao = $descricao;
-        $conteudo->diretorio = $tipo->nome == "Vídeos" ? $conteudo_field->store("conteudos/videos") : $conteudo_field->store("conteudos/musicas");
+        $conteudo->diretorio = $tipo == "Vídeos" ? $conteudo_field->store("conteudos/videos") : $conteudo_field->store("conteudos/musicas");
         $conteudo->classificacao = 0;
+        $conteudo->genero_id = $genero;
         $conteudo->imagem = $imagem->store("conteudos/imagens");
 
         if(!$conteudo->save()){
