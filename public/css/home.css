@@ -1,11 +1,5 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css");
 
-
-body,
-html {
-  color: #ecf0f1;
-  font-family: 'Open Sans', sans-serif;
-}
 * {
   box-sizing: border-box;
 }
@@ -45,7 +39,7 @@ a:hover {
     touch-action: pan-y;
 }
 
-.slider h3{
+.slider h5{
   position: absolute;
   top: 22px;
   z-index: 30;
@@ -161,6 +155,8 @@ a:hover {
   z-index: 1;
 }
 .gui-card__details:before {
+  color: #ecf0f1;
+  font-family: 'Open Sans', sans-serif;
   content: '▶';
   left: 0;
   width: 100%;
