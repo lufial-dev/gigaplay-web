@@ -19,10 +19,13 @@
 
         <div id="scroller_mais_vistos" class="row">
             <div class="row__inner">
-                @foreach($mais_vistos as $conteudo)
+                @foreach($mais_vistos as $conteudo) 
+                <a  href="#" data-toggle="modal" data-target=".detalhes-modal">
                     <div class="gui-card">
                         <div class="gui-card__media">
-                            <img class="gui-card__img" src="{{ URL::asset('storage/'.$conteudo->imagem) }}" alt=""  />
+                           
+                                <img class="gui-card__img" src="{{ URL::asset('storage/'.$conteudo->imagem) }}" alt=""  />
+                        
                         </div>
                         <div class="gui-card__details">
                             <div class="gui-card__title text-white">
@@ -30,6 +33,7 @@
                             </div>
                         </div>
                     </div>
+                </a>
                 @endforeach
 
             </div>

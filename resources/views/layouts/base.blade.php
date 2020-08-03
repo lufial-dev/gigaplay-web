@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="{{ URL::asset('assets/css/font-awesome.min.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('css/home.css') }}">
+        <link rel="stylesheet" href="{{ URL::asset('css/detalhes.css') }}">
 
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
@@ -30,7 +31,7 @@
             <div class="content p-3">
                 @yield('content')
                 
-
+                @include('modals.conteudo.detalhes')
             </div>
         </main>        
     </body>
