@@ -24,6 +24,43 @@
     float: left;
 }
 
+.descricao {
+    margin-top: 20%;
+    margin-left: 10%;
+    text-align: left;
+    width: 500px;
+
+}
+
+.meta-data-icon-label{
+    color: white;
+    float: left;
+    width: 100%;
+    margin-top: 2%;
+    margin-left: 10%;
+}
+.meta-data-icon-label a{
+    color: white;
+    font-weight: bold;
+}
+.icon-wrapper{
+    float: left;
+    background-color: #141414;
+    margin-left: 0px;
+    margin-right: 10px;
+}
+
+.label{
+    float: left;
+}
+
+.my-btn{
+    width: 250px;
+    margin-top: 50px;
+    margin-left: 10%;
+    padding: 5px;
+}
+
 @media screen and (max-width: 600px) {
 	.img-detalhes{
         width: 102% !important;

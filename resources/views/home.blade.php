@@ -13,14 +13,14 @@
 @section('content')
 <div class="slider">
         <h5 class="text-white">Mais Vistos</h5>
-        <span onmouseover="scrollEsquerda('scroller_mais_vistos')" onmouseout="clearScroll()" class="handle handlePrev active">
+        <span onmousedown="scrollEsquerda('scroller_mais_vistos')" onmouseup="clearScroll()" class="handle handlePrev active">
             <i class="fa my-fa fa-caret-left" aria-hidden="true"></i>
         </span>
 
         <div id="scroller_mais_vistos" class="row">
             <div class="row__inner">
                 @foreach($mais_vistos as $conteudo) 
-                <a  href="#" data-toggle="modal" data-target=".detalhes-modal">
+                <a  href="#" data-toggle="modal" data-target=".detalhes-modal" onclick="detalhesShow( {{ $conteudo }})">
                     <div class="gui-card">
                         <div class="gui-card__media">
                            

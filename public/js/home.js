@@ -9,3 +9,10 @@ function scrollEsquerda(scroller_id){
 function clearScroll(){
   clearInterval(intervalo);
 };
+
+function detalhesShow(conteudo){
+    $("#detalhes-titulo").html(conteudo.titulo);
+    $("#detalhes-genero").html(conteudo.genero_id);
+    $("#detalhes-descricao").html(conteudo.descricao);
+    
+}
