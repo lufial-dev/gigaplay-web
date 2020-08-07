@@ -13,7 +13,7 @@
 @section('content')
 <div class="slider">
         <h5 class="text-white">Mais Vistos</h5>
-        <span onmousedown="scrollEsquerda('scroller_mais_vistos')" onmouseup="clearScroll()" class="handle handlePrev active">
+        <span onmousedown="scrollEsquerda('scroller_mais_vistos')" onmouseup="clearScroll()"  ontouchend="clearScroll()" ontouchstart="scrollEsquerda('scroller_mais_vistos')" class="handle handlePrev active">
             <i class="fa my-fa fa-caret-left" aria-hidden="true"></i>
         </span>
 
@@ -39,7 +39,7 @@
             </div>
         </div>
 
-        <span onmouseover="scrollDireita('scroller_mais_vistos')" onmouseout="clearScroll()"  class="handle handleNext active">
+        <span onmousedown="scrollDireita('scroller_mais_vistos')" ontouchstart="scrollDireita('scroller_mais_vistos')" onmouseup="clearScroll()" ontouchend="clearScroll()" class="handle handleNext active">
             <i class="fa my-fa fa-caret-right" aria-hidden="true"></i>
         </span>
     </div>
@@ -111,3 +111,4 @@
     @endfor
 
 @endsection
+

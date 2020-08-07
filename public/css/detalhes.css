@@ -32,6 +32,7 @@
 
 }
 
+
 .meta-data-icon-label{
     color: white;
     float: left;
@@ -61,26 +62,48 @@
     padding: 5px;
 }
 
+@media screen and (min-width: 800px) {
+    .my-modal-dialog{
+        min-width: 99% !important;
+    }
+}
+
 @media screen and (max-width: 600px) {
 	.img-detalhes{
         width: 102% !important;
-        height: 250px !important;
+        height: 320px !important;
         object-fit: cover;
         filter: brightness(30%);
     }
 
+    .my-modal-dialog{
+        margin: 0px !important;
+        float: left !important;
+        min-width: 98% !important;
+        padding: 0% !important;
+    }
+
+
     .detalhes h1{
+        width: 100%;
         font-size: 25px;
-        margin-top: 5%;
+        margin-top: 2%;
         margin-left: 7%;
         float: left;
+        text-align: left;
     }
     
     .descricao {
-        margin-top: 25%;
-        margin-left: 7%;
+        width: 85%;
+        margin-left: 7%px;
         font-size: 12px;
-        text-align: left;
 
+    }
+
+    .my-btn{
+        width: 250px;
+        margin-left: 10%;
+        padding: 5px;
+        margin-top: 15px;
     }
 }
