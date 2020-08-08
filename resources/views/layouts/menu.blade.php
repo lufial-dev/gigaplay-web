@@ -1,6 +1,9 @@
 @php
-$permissaoConteudo = $user->permissaoConteudo();
-$permissaoServico = $user->permissaoServico();
+$permissaoConteudo = $user->permissao("Conteúdo");
+$permissaoServico = $user->permissao("Serviço");
+$permissaoCategoria = $user->permissao("Categoria");
+$permissaoFuncionario = $user->permissao("Funcionário");
+
 @endphp
 
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,22 +29,26 @@ $permissaoServico = $user->permissaoServico();
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="">Gerenciar Clientes</a>
 
-                    <a class="dropdown-item" href="">Gerenciar Funcionários</a>
+                    @if($permissaoFuncionario->ver)
+                        <a id="btn-gerenciar-funcionario" class="dropdown-item" href="" data-toggle="modal" data-target="#funcionarioModal">Gerenciar Funcionários</a>
+                    @endif
 
                     @if($permissaoServico->ver)
                         <a id="btn-gerenciar-servico" class="dropdown-item" href="" data-toggle="modal" data-target="#servicoModal">Gerenciar Serviços</a>
                     @endif
 
-                    <a id="btn-gerenciar-categoria" class="dropdown-item" href="" data-toggle="modal" data-target="#categoriaModal">Gerenciar Categorias</a>
+                    @if($permissaoCategoria->ver)
+                        <a id="btn-gerenciar-categoria" class="dropdown-item" href="" data-toggle="modal" data-target="#categoriaModal">Gerenciar Categorias</a>
+                    @endif
 
                     @if($permissaoConteudo->ver)
                         <a class="dropdown-item" href="">Gerenciar Conteúdos</a>
                     @endif
 
-                    <a class="dropdown-item" href="">Gerenciar Grupos e Permissões</a>
+                    <a class="dropdown-item" href="">Gerenciar Grupos</a>
 
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="">Something else here</a>
+                    <a class="dropdown-item" href="">Gerenciar Permissões</a>
+
                 </div>
             </li>
         @endif

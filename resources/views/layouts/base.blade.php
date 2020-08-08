@@ -37,6 +37,8 @@
                 @include('modals.servico.view')
 
                 @include('modals.categoria.view')
+
+                @include('modals.funcionario.view')
             </div>
         </main>        
     </body>
