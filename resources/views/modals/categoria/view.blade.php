@@ -12,7 +12,7 @@
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">Nome</th>
-                            <th scope="col">Descrição</th>
+                            <th scope="col">Serviço</th>
                             <th scope="col">Ações</th>
                         </tr>
                     </thead>
@@ -35,11 +35,12 @@
                 type: "get",
                 dataType: 'json',
                 success: function(response){
+                    console.log(response);
                     if(response.sucesso){
                         for(var categoria in response.categorias){
                             var str = 
                                 "<tr><td>"+response.categorias[categoria].nome
-                                +"</td><td>"+response.categorias[categoria].descricao
+                                +"</td><td>"+response.categorias[categoria].servico.nome
                                 +"</td><td><button class='btn btn-primary mr-1'><i class='fa fa-edit'></i></button><button class='btn btn-danger mr-1'><i class='fa fa-remove'></i></button>";
 
 

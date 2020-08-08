@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Categoria;
-
+use Auth;
 class CategoriaController extends Controller
 {
 
@@ -19,6 +19,10 @@ class CategoriaController extends Controller
             $categorias = Categoria::all();
             $response['sucesso'] = true;
             $response['categorias'] = $categorias;
+            
+            foreach($categorias as $categoria)
+                $categoria->servico;
+                
             echo json_encode($response);
             return;
         }

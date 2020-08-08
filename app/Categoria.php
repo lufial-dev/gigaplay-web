@@ -7,12 +7,12 @@ use Illuminate\Support\Facades\DB;
 
 class Categoria extends Model
 {
-    protected $fillable = ['nome', 'servico_id', 'status', 'selecionado'];
+    protected $fillable = ['nome', 'servico_id', 'status', 'servico'];
     protected $hidden = ['id', 'created_at', 'upgrade_at'];
     protected $table = 'categorias';
 
     public function servico(){
-        return Servico::find($this->servico_id)->get()[0];
+        return $this->belongsTo('App\Servico');
     }
 
     public static function buscar_por_servico(int $id){

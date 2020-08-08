@@ -32,7 +32,7 @@ $permissaoServico = $user->permissaoServico();
                         <a id="btn-gerenciar-servico" class="dropdown-item" href="" data-toggle="modal" data-target="#servicoModal">Gerenciar Serviços</a>
                     @endif
 
-                    <a class="dropdown-item" href="">Gerenciar Categorias</a>
+                    <a id="btn-gerenciar-categoria" class="dropdown-item" href="" data-toggle="modal" data-target="#categoriaModal">Gerenciar Categorias</a>
 
                     @if($permissaoConteudo->ver)
                         <a class="dropdown-item" href="">Gerenciar Conteúdos</a>
