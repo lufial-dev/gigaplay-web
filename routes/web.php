@@ -24,6 +24,7 @@ Route::get('/servicos/listar', 'ServicoController@listar')->name('servico.listar
 
 Route::get('/generos/listar/{servico_id}', 'GeneroController@listar_por_servico')->name('genero.listar.servico');
 
+Route::get('/categorias/listar', 'CategoriaController@listar')->name('categoria.listar');
 Route::get('/categorias/listar/{servico_id}', 'CategoriaController@listar_por_servico')->name('categoria.listar.servico');
 
 Route::post('/conteudo/store', 'ConteudoController@store')->name('conteudo.store');

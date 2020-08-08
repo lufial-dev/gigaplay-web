@@ -1,7 +1,7 @@
 <div class="modal fade detalhes-modal bg-black" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog my-modal-dialog" role="document">    
         <div class="modal-content bg-black float-left">
-            <div class="modal-body">
+            <div class="modal-body modal-body-detalhes">
                 <div class = "cabecalho">
                     <img class="img-detalhes" id="detalhes-imagem" src="" alt=""  />
                     <div class="detalhes">
@@ -24,7 +24,7 @@
                         <div class="descricao" id="detalhes-descricao">
                             Descricao
                         </div>
-                        <button class="btn btn-primary my-btn float-left" data-toggle="modal" data-target=".player-modal" onclick="videoShow({{ $conteudo }})">Assistir agora</button>
+                        <button class="btn btn-primary my-btn float-left" data-toggle="modal" data-target=".player-modal" onclick="videoShow()">Assistir agora</button>
                     </div>
                 </div>
             </div>
@@ -41,13 +41,14 @@
         $("#detalhes-descricao").html(conteudo.descricao);
         $("#detalhes-imagem").attr('src', url);
         
+        var url = "{{ URL::asset('storage/') }}".concat("/").concat(conteudo.diretorio);
+        $("#video").attr('src', url);
+    
     }
 
 
-    function videoShow(conteudo){
-        var url = "{{ URL::asset('storage/') }}".concat("/").concat(conteudo.diretorio);
-        $("#video").attr('src', url);
-        
+    function videoShow(){
+        $('#video').trigger('play');
     }
 </script>
 

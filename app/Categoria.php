@@ -11,6 +11,10 @@ class Categoria extends Model
     protected $hidden = ['id', 'created_at', 'upgrade_at'];
     protected $table = 'categorias';
 
+    public function servico(){
+        return Servico::find($this->servico_id)->get()[0];
+    }
+
     public static function buscar_por_servico(int $id){
         return DB::table('categorias')->get()->where('servico_id', $id);
     }

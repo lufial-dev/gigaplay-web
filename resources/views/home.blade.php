@@ -11,6 +11,8 @@
 @endsection
 
 @section('content')
+
+
 <div class="slider">
         <h5 class="text-white">Mais Vistos</h5>
         <span onmousedown="scrollEsquerda('scroller_mais_vistos')" onmouseup="clearScroll()"  ontouchend="clearScroll()" ontouchstart="scrollEsquerda('scroller_mais_vistos')" class="handle handlePrev active">
@@ -21,7 +23,7 @@
             <div class="row__inner">
 
                 @foreach($mais_vistos as $conteudo) 
-                <a  href="#" data-toggle="modal" data-target=".detalhes-modal" onclick="detalhesShow( {{ $conteudo }})">
+                <a  href="#" data-toggle="modal" data-target=".detalhes-modal" onclick="@php $conteudo_selecionado=$conteudo @endphp ; detalhesShow( {{ $conteudo }})">
                     <div class="gui-card">
                         <div class="gui-card__media">
                            

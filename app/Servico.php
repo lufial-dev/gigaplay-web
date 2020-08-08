@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class Servico extends Model
 {
-    protected $fillable = ['nome', 'descricao', 'selecionado'];
+    protected $fillable = ['nome', 'descricao'];
     protected $hidden = ['created_at', 'update_at'];
     protected $table = 'servicos';
 

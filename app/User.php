@@ -51,7 +51,22 @@ class User extends Authenticatable
             $entidade_id = Entidade::where("nome", "Conteúdo")->get()[0]->id;
 
             foreach($permissoes as $permissao){
-                if($permissao->entidade_id = $entidade_id){
+                if($permissao->entidade_id == $entidade_id){
+                    return $permissao;
+                }
+            }
+        }
+        return false;
+    }
+
+    public function permissaoServico(){
+        if($this->tipo == "Funcionário"){
+            $grupo_id = Funcionario::where("user_id", $this->id)->get()[0]->grupo_id;
+            $permissoes = Grupo::find($grupo_id)->get()[0]->permissoes;
+            $entidade_id = Entidade::where("nome", "Serviço")->get()[0]->id;
+
+            foreach($permissoes as $permissao){
+                if($permissao->entidade_id == $entidade_id){
                     return $permissao;
                 }
             }

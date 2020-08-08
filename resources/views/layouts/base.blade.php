@@ -33,6 +33,7 @@
                 
                 @include('modals.conteudo.detalhes')
                 @include('modals.conteudo.player')
+                @include('modals.servico.view')
             </div>
         </main>        
     </body>

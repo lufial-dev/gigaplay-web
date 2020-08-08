@@ -1,5 +1,6 @@
 @php
-    $permissaoConteudo = $user->permissaoConteudo();
+$permissaoConteudo = $user->permissaoConteudo();
+$permissaoServico = $user->permissaoServico();
 @endphp
 
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,22 +24,24 @@
                     Opções de Administrador
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Gerenciar Clientes</a>
+                    <a class="dropdown-item" href="">Gerenciar Clientes</a>
 
-                    <a class="dropdown-item" href="#">Gerenciar Funcionários</a>
+                    <a class="dropdown-item" href="">Gerenciar Funcionários</a>
 
-                    <a class="dropdown-item" href="#">Gerenciar Servicos</a>
-
-                    <a class="dropdown-item" href="#">Gerenciar Categorias</a>
-
-                    @if($permissaoConteudo->ver)
-                        <a class="dropdown-item" href="#">Gerenciar Conteúdos</a>
+                    @if($permissaoServico->ver)
+                        <a id="btn-gerenciar-servico" class="dropdown-item" href="" data-toggle="modal" data-target="#servicoModal">Gerenciar Serviços</a>
                     @endif
 
-                    <a class="dropdown-item" href="#">Gerenciar Grupos e Permissões</a>
+                    <a class="dropdown-item" href="">Gerenciar Categorias</a>
+
+                    @if($permissaoConteudo->ver)
+                        <a class="dropdown-item" href="">Gerenciar Conteúdos</a>
+                    @endif
+
+                    <a class="dropdown-item" href="">Gerenciar Grupos e Permissões</a>
 
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                    <a class="dropdown-item" href="">Something else here</a>
                 </div>
             </li>
         @endif

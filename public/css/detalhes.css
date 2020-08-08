@@ -32,7 +32,7 @@
 
 }
 
-.modal-body{
+.modal-body-detalhes{
     padding: 0%;
     margin: 0%;
     
@@ -101,11 +101,19 @@
         filter: brightness(30%);
     }
 
+
+    .video-container{
+        height: 300px !important;
+     }
+
+     .video-container video{
+        height: 100% !important;
+        
+    }
     .my-modal-dialog{
         margin: 0px !important;
         float: left !important;
         min-width: 98% !important;
-        padding: 0% !important;
     }
 
 
