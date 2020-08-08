@@ -52,13 +52,17 @@ class User extends Authenticatable
         if($this->tipo == "Funcionário"){
             $grupo_id = Funcionario::where("user_id", $this->id)->get()[0]->grupo_id;
             $permissoes = Grupo::find($grupo_id)->get()[0]->permissoes;
-            $entidade_id = Entidade::where("nome", $entidade)->get()[0]->id;
 
-            foreach($permissoes as $permissao){
-                if($permissao->entidade_id == $entidade_id){
-                    return $permissao;
+            if(count($permissoes) > 0 ){
+                $entidade_id = Entidade::where("nome", $entidade)->get()[0]->id;
+
+                foreach($permissoes as $permissao){
+                    if($permissao->entidade_id == $entidade_id){
+                        return $permissao;
+                    }
                 }
             }
+            return false;
         }
         return false;
     }

@@ -39,6 +39,8 @@
                 @include('modals.categoria.view')
 
                 @include('modals.funcionario.view')
+
+                @include('modals.cliente.view')
             </div>
         </main>        
     </body>

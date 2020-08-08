@@ -30,3 +30,5 @@ Route::get('/categorias/listar/{servico_id}', 'CategoriaController@listar_por_se
 Route::post('/conteudo/store', 'ConteudoController@store')->name('conteudo.store');
 
 Route::get('/funcionarios/listar', 'FuncionarioController@listar')->name('funcionario.listar');
+
+Route::get('/clientes/listar', 'ClienteController@listar')->name('cliente.listar');

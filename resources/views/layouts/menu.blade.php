@@ -1,9 +1,9 @@
 @php
-$permissaoConteudo = $user->permissao("Conteúdo");
-$permissaoServico = $user->permissao("Serviço");
-$permissaoCategoria = $user->permissao("Categoria");
-$permissaoFuncionario = $user->permissao("Funcionário");
-
+    $permissaoConteudo = $user->permissao("Conteúdo");
+    $permissaoServico = $user->permissao("Serviço");
+    $permissaoCategoria = $user->permissao("Categoria");
+    $permissaoFuncionario = $user->permissao("Funcionário");
+    $permissaoCliente = $user->permissao("Cliente");
 @endphp
 
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,21 +27,23 @@ $permissaoFuncionario = $user->permissao("Funcionário");
                     Opções de Administrador
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="">Gerenciar Clientes</a>
+                    @if($permissaoCliente and $permissaoCliente->ver)
+                        <a id="btn-gerenciar-cliente" class="dropdown-item" href="" data-toggle="modal" data-target="#clienteModal">Gerenciar Clientes</a>
+                    @endif
 
-                    @if($permissaoFuncionario->ver)
+                    @if($permissaoFuncionario and $permissaoFuncionario->ver)
                         <a id="btn-gerenciar-funcionario" class="dropdown-item" href="" data-toggle="modal" data-target="#funcionarioModal">Gerenciar Funcionários</a>
                     @endif
 
-                    @if($permissaoServico->ver)
+                    @if($permissaoServico and $permissaoServico->ver)
                         <a id="btn-gerenciar-servico" class="dropdown-item" href="" data-toggle="modal" data-target="#servicoModal">Gerenciar Serviços</a>
                     @endif
 
-                    @if($permissaoCategoria->ver)
+                    @if($permissaoCategoria and $permissaoCategoria->ver)
                         <a id="btn-gerenciar-categoria" class="dropdown-item" href="" data-toggle="modal" data-target="#categoriaModal">Gerenciar Categorias</a>
                     @endif
 
-                    @if($permissaoConteudo->ver)
+                    @if($permissaoConteudo and $permissaoConteudo->ver)
                         <a class="dropdown-item" href="">Gerenciar Conteúdos</a>
                     @endif
 
