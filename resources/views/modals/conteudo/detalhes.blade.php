@@ -24,7 +24,7 @@
                         <div class="descricao" id="detalhes-descricao">
                             Descricao
                         </div>
-                        <button class="btn btn-primary my-btn float-left">Assistir agora</button>
+                        <button class="btn btn-primary my-btn float-left" data-toggle="modal" data-target=".player-modal" onclick="videoShow({{ $conteudo }})">Assistir agora</button>
                     </div>
                 </div>
             </div>
@@ -42,4 +42,14 @@
         $("#detalhes-imagem").attr('src', url);
         
     }
+
+
+    function videoShow(conteudo){
+        var url = "{{ URL::asset('storage/') }}".concat("/").concat(conteudo.diretorio);
+        $("#video").attr('src', url);
+        
+    }
 </script>
+
+
+

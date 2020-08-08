@@ -32,8 +32,8 @@
                 @yield('content')
                 
                 @include('modals.conteudo.detalhes')
+                @include('modals.conteudo.player')
             </div>
         </main>        
     </body>
 </html>
-
