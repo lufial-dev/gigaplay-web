@@ -44,7 +44,7 @@
                     @endif
 
                     @if($permissaoConteudo and $permissaoConteudo->ver)
-                        <a class="dropdown-item" href="">Gerenciar Conteúdos</a>
+                        <a id="btn-gerenciar-conteudo" class="dropdown-item" href="" data-toggle="modal" data-target="#conteudoModal">Gerenciar Conteúdos</a>
                     @endif
 
                     <a class="dropdown-item" href="">Gerenciar Grupos</a>

@@ -18,3 +18,4 @@ class Cliente extends Model
         return $this->belongsToMany(Servico::class, 'clientes_servicos');
     }
 }
+

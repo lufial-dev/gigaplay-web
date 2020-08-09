@@ -7,9 +7,34 @@ use File;
 
 use App\Conteudo;
 use App\Servico;
+use Auth;
 
 class ConteudoController extends Controller
 {
+
+    public function listar(){
+        if(Auth::user()->tipo == "Cliente"){
+            $response['sucesso'] =  false;
+            $response['mensagem'] = "Você não tem permissão";
+            echo json_encode($response);
+            return;
+        }else{
+            $conteudos = Conteudo::all();
+            $response['sucesso'] = true;
+            $response['conteudos'] = $conteudos;
+            
+            foreach($conteudos as $conteudo){
+                $conteudo->categoria;
+                $conteudo->genero;
+            }
+            
+                
+            echo json_encode($response);
+            return;
+        }
+    }
+
+
     public function store(ConteudoRequest $request){
         
         $extensoes_imagem = ["png", "jpg", "jpeg"];
