@@ -33,3 +33,5 @@ Route::get('/conteudos/listar', 'ConteudoController@listar')->name('conteudo.lis
 Route::get('/funcionarios/listar', 'FuncionarioController@listar')->name('funcionario.listar');
 
 Route::get('/clientes/listar', 'ClienteController@listar')->name('cliente.listar');
+
+Route::get('/grupos/listar', 'GrupoController@listar')->name('grupo.listar');

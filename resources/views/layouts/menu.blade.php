@@ -4,6 +4,7 @@
     $permissaoCategoria = $user->permissao("Categoria");
     $permissaoFuncionario = $user->permissao("Funcionário");
     $permissaoCliente = $user->permissao("Cliente");
+    $permissaoGrupo = $user->permissao("Grupo");
 @endphp
 
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,7 +48,9 @@
                         <a id="btn-gerenciar-conteudo" class="dropdown-item" href="" data-toggle="modal" data-target="#conteudoModal">Gerenciar Conteúdos</a>
                     @endif
 
-                    <a class="dropdown-item" href="">Gerenciar Grupos</a>
+                    @if($permissaoGrupo and $permissaoGrupo->ver)
+                        <a id="btn-gerenciar-grupo" class="dropdown-item" href="" data-toggle="modal" data-target="#grupoModal">Gerenciar Grupo</a>
+                    @endif
 
                     <a class="dropdown-item" href="">Gerenciar Permissões</a>
 

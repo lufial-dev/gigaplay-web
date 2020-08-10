@@ -42,6 +42,8 @@
                 @include('modals.funcionario.view')
 
                 @include('modals.cliente.view')
+
+                @include('modals.grupo.view')
             </div>
         </main>        
     </body>
