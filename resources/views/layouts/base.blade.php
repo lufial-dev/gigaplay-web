@@ -44,6 +44,8 @@
                 @include('modals.cliente.view')
 
                 @include('modals.grupo.view')
+
+                @include('modals.permissao.view')
             </div>
         </main>        
     </body>

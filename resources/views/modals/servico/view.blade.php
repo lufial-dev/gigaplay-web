@@ -1,13 +1,13 @@
-<div class="modal w-100 fade" id="servicoModal" tabindex="-1" role="dialog" aria-labelledby="servicoModal" aria-hidden="true">
-    <div class="modal-dialog w-100" role="document">
-        <div class="modal-content w-100">
-            <div class="modal-header w-100">
-                <h5 class="modal-title" id="servicoModalLabel">Servicos</h5>
+<div class="modal fade" id="servicoModal" tabindex="-1" role="dialog" aria-labelledby="servicoModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="servicoModalLabel">Serviços</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body w-100">
+            <div class="modal-body">
                 <table id="table-servico" class="table">
                     <thead class="thead-dark">
                         <tr>

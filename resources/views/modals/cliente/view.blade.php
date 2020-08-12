@@ -2,7 +2,7 @@
     <div class="modal-dialog w-100" role="document">
         <div class="modal-content w-100">
             <div class="modal-header w-100">
-                <h5 class="modal-title" id="clienteModalLabel">Funcionários</h5>
+                <h5 class="modal-title" id="clienteModalLabel">Clientes</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -36,7 +36,6 @@
                 type: "get",
                 dataType: 'json',
                 success: function(response){
-                    console.log(response);
                     if(response.sucesso){
                         for(var cliente in response.clientes){
                             var str = 

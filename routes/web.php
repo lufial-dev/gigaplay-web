@@ -35,3 +35,5 @@ Route::get('/funcionarios/listar', 'FuncionarioController@listar')->name('funcio
 Route::get('/clientes/listar', 'ClienteController@listar')->name('cliente.listar');
 
 Route::get('/grupos/listar', 'GrupoController@listar')->name('grupo.listar');
+
+Route::get('/permissoess/listar/{grupo_id}', 'PermissaoController@listar_por_grupo')->name('permissao.listar.grupo');

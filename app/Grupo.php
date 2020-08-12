@@ -7,8 +7,8 @@ use App\Permissao;
 
 class Grupo extends Model
 {
-    protected $fillable = ['nome', 'status'];
-    protected $hidden = ['id', 'created_at', 'update_at'];
+    protected $fillable = ['id', 'nome', 'status'];
+    protected $hidden = [ 'created_at', 'update_at'];
     protected $table = 'grupos';
 
     public function permissoes(){
