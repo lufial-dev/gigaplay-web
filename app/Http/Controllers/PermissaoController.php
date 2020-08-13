@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
-use App\Permissao;
+use App\Grupo;
 
 class PermissaoController extends Controller
 {
@@ -15,13 +15,14 @@ class PermissaoController extends Controller
             echo json_encode($response);
             return;
         }else{
-            $permissoes = Permissao::buscar_por_grupo($request->grupo_id);
+            $grupo = Grupo::find($request->grupo_id);
+            $permissoes =  $grupo->permissoes;
+
             $response['sucesso'] = true;
             $response['permissoes'] = $permissoes;
-            
+    
             foreach($permissoes as $permissao)
                 $permissao->entidade;
-            
                 
             echo json_encode($response);
             return;

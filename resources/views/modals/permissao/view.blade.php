@@ -1,5 +1,5 @@
 <div class="modal fade" id="permissaoModal" tabindex="-1" role="dialog" aria-labelledby="permissaoModal" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="permissaoModalLabel">Permissões</h5>
@@ -39,14 +39,15 @@
             type: "get",
             dataType: 'json',
             success: function(response){
+                console.log(response);
                 if(response.sucesso){
-                    for(var permissao in response.permissaos){
+                    for(var permissao in response.permissoes){
                         var str = 
-                            "<tr><td>"+response.permissaos[permissao].nome
-                            +"</td><td>"+response.permissaos[permissao].entidade
-                            +"</td><td>"+response.permissaos[permissao].adicionar
-                            +"</td><td>"+response.permissaos[permissao].editar
-                            +"</td><td>"+response.permissaos[permissao].remover
+                            "<tr><td>"+response.permissoes[permissao].nome
+                            +"</td><td>"+response.permissoes[permissao].entidade.nome
+                            +"</td><td>"+response.permissoes[permissao].adicionar
+                            +"</td><td>"+response.permissoes[permissao].editar
+                            +"</td><td>"+response.permissoes[permissao].remover
                             +"</td><td><button class='btn btn-primary mr-1'>"
                             +"<i class='fa fa-edit'></i>"
                             +"</button><button class='btn btn-danger mr-1'>"
