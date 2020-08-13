@@ -11,8 +11,8 @@
                 <table id="table-permissao" class="table">
                     <thead class="thead-dark">
                         <tr>
-                            <th scope="col">Nome</th>
                             <th scope="col">Entidade</th>
+                            <th scope="col">Ver</th>
                             <th scope="col">Adicionar</th>
                             <th scope="col">Editar</th>
                             <th scope="col">Remover</th>
@@ -39,15 +39,23 @@
             type: "get",
             dataType: 'json',
             success: function(response){
-                console.log(response);
+                
                 if(response.sucesso){
                     for(var permissao in response.permissoes){
+                        var icon_check = "<i class='fa fa-check text-success'></i>";
+                        var icon_close = "<i class='fa fa-close text-danger'></i>";
+
+                        var ver = response.permissoes[permissao].ver ? icon_check : icon_close;
+                        var adicionar = response.permissoes[permissao].adicionar ? icon_check : icon_close;
+                        var editar = response.permissoes[permissao].editar ? icon_check : icon_close;
+                        var remover = response.permissoes[permissao].remover ? icon_check : icon_close;
+
                         var str = 
-                            "<tr><td>"+response.permissoes[permissao].nome
-                            +"</td><td>"+response.permissoes[permissao].entidade.nome
-                            +"</td><td>"+response.permissoes[permissao].adicionar
-                            +"</td><td>"+response.permissoes[permissao].editar
-                            +"</td><td>"+response.permissoes[permissao].remover
+                            "<tr class='align-middle'><td>"+response.permissoes[permissao].entidade.nome
+                            +"</td><td>"+ ver
+                            +"</td><td>"+ adicionar
+                            +"</td><td>"+ editar
+                            +"</td><td>"+ remover
                             +"</td><td><button class='btn btn-primary mr-1'>"
                             +"<i class='fa fa-edit'></i>"
                             +"</button><button class='btn btn-danger mr-1'>"
