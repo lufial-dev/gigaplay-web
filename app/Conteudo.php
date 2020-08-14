@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\DB;
 
 class Conteudo extends Model
 {
-    protected $fillable = ['titulo', 'descricao', 'diretorio', 'classificacao', 'imagem', 'categoria_id', 'genero_id', 'created_at'];
-    protected $hidden = ['id', 'update_at'];
+    protected $fillable = ['id','titulo', 'descricao', 'diretorio', 'classificacao', 'imagem', 'categoria_id', 'genero_id', 'created_at'];
+    protected $hidden = [ 'update_at'];
     protected $table = 'conteudos';
 
     public static function buscar_por_categoria($id){

@@ -64,7 +64,7 @@
 
                             $("#body-table-permissao").html(
                             $("#body-table-permissao").html().concat(str)
-                            );
+                        );
                     }                        
                 }
             },

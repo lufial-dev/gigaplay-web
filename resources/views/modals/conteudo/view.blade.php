@@ -45,7 +45,12 @@
                                 +"</td><td>"+response.conteudos[conteudo].categoria.nome
                                 +"</td><td>"+response.conteudos[conteudo].genero.nome
                                 +"</td><td>"+data
-                                +"</td><td><button class='btn btn-primary mr-1'><i class='fa fa-edit'></i></button><button class='btn btn-danger mr-1'><i class='fa fa-remove'></i></button>";
+                                +"</td><td><button onclick='_funcao_' class='btn btn-primary'"
+                                .replace("_funcao_", 'showModalConteudoEditar('+response.conteudos[conteudo].id+')')
+                                +"data-toggle='modal' data-target='#permissaoModal'>"
+                                +"<i class='fa fa-edit'></i></button>"
+                                +"<button class='btn btn-danger mr-1'>"
+                                +"<i class='fa fa-remove'></i></button>";
 
 
                              $("#body-table-conteudo").html(
@@ -57,6 +62,10 @@
             });
         });
     });
+
+    function showModalConteudoEditar(conteudo){
+        console.log(conteudo);
+    }
 
     
 
