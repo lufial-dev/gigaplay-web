@@ -69,7 +69,8 @@
     <ul class="navbar-nav">
         @if($user->tipo == "Funcionário" && $permissaoConteudo->adicionar)
             <li class="nav-item">
-                <button id="btn-add-conteudo" class="btn btn-primary btn-sm mt-2 mr-3 ml-4" title="Adicionar conteúdo" data-toggle="modal" data-target="#addConteudoModal">
+                <button id="btn-add-conteudo" class="btn btn-primary btn-sm mt-2 mr-3 ml-4" title="Adicionar conteúdo"
+                     data-toggle="modal" data-target="#addConteudoModal" onclick="loadModalConteudoServicos()">
                     <i class="fa fa-upload"></i>
                 </button>
             </li>
@@ -97,7 +98,22 @@
     </ul>
 </div>
 
+@include('modals.conteudo.view')
+@include('modals.conteudo.detalhes')
+@include('modals.conteudo.player')
 @include('modals.conteudo.create')
+
+@include('modals.servico.view')
+
+@include('modals.categoria.view')
+
+@include('modals.funcionario.view')
+
+@include('modals.cliente.view')
+
+
+@include('modals.permissao.view')
+
 @include('modals.grupo.view')
 
 

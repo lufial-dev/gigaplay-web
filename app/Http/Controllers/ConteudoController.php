@@ -34,6 +34,28 @@ class ConteudoController extends Controller
         }
     }
 
+    public function listar_por_id(int $id){
+        if(Auth::user()->tipo == "Cliente"){
+            $response['sucesso'] =  false;
+            $response['mensagem'] = "Você não tem permissão";
+            echo json_encode($response);
+            return;
+
+        }else{
+
+            $conteudo = Conteudo::find($id);
+            $response['sucesso'] = true;
+            $conteudo->categoria;
+            $conteudo->categoria->servico;
+            $conteudo->genero;
+
+            $response['conteudo'] = $conteudo;           
+                
+            echo json_encode($response);
+            return;
+        }
+    }
+
 
     public function store(ConteudoRequest $request){
         

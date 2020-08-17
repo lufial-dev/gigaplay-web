@@ -45,9 +45,9 @@
                                 +"</td><td>"+response.conteudos[conteudo].categoria.nome
                                 +"</td><td>"+response.conteudos[conteudo].genero.nome
                                 +"</td><td>"+data
-                                +"</td><td><button onclick='_funcao_' class='btn btn-primary'"
+                                +"</td><td><button onclick='_funcao_' class='btn btn-primary m-2'"
                                 .replace("_funcao_", 'showModalConteudoEditar('+response.conteudos[conteudo].id+')')
-                                +"data-toggle='modal' data-target='#permissaoModal'>"
+                                +"data-toggle='modal' data-target='#addConteudoModal'>"
                                 +"<i class='fa fa-edit'></i></button>"
                                 +"<button class='btn btn-danger mr-1'>"
                                 +"<i class='fa fa-remove'></i></button>";
@@ -63,8 +63,39 @@
         });
     });
 
-    function showModalConteudoEditar(conteudo){
-        console.log(conteudo);
+    function showModalConteudoEditar(conteudo)  {
+        loadModalConteudoServicos();
+        $("#addConteudoModalLabel").html("Editar Conteúdo");
+        $("#success-conteudo").html("Conteúdo cadastrado com sucesso");
+        var rota = "{{ route('conteudo.listar.id', ['id' => '_id_']) }}".replace('_id_', conteudo);
+        $.ajax({
+            url: rota,
+            type: "get",
+            dataType: 'json',
+            success: async function(response){
+                if(response.sucesso){
+                    $("#conteudo-select-servico option:contains('_servico_')"
+                        .replace("_servico_", response.conteudo.categoria.servico.nome)
+                    ).attr("selected", true);
+
+                    loadModalConteudoCategorias(response.conteudo.categoria.nome, response.conteudo.genero.nome);
+
+                    disableCampos(true);
+
+                    $("#conteudo-input-titulo").val(
+                        response.conteudo.titulo
+                    );
+
+                    $("#conteudo-input-descricao").val(
+                        response.conteudo.descricao
+                    );
+
+                    var diretorio_img = "{{ URL::asset('storage/_imagem_') }}".replace('_imagem_', response.conteudo.imagem)
+                    $("#conteudo-imagem").attr("src", diretorio_img);
+                    $("#conteudo-imagem").removeClass("d-none");
+                }
+            },
+        });
     }
 
     

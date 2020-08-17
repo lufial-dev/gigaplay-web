@@ -31,20 +31,7 @@
             <div class="content p-3">
                 @yield('content')
                 
-                @include('modals.conteudo.detalhes')
-                @include('modals.conteudo.player')
-                @include('modals.conteudo.view')
                 
-                @include('modals.servico.view')
-
-                @include('modals.categoria.view')
-
-                @include('modals.funcionario.view')
-
-                @include('modals.cliente.view')
-
-
-                @include('modals.permissao.view')
             </div>
         </main>        
     </body>
