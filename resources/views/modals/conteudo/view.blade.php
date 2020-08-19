@@ -93,6 +93,14 @@
                     var diretorio_img = "{{ URL::asset('storage/_imagem_') }}".replace('_imagem_', response.conteudo.imagem)
                     $("#conteudo-imagem").attr("src", diretorio_img);
                     $("#conteudo-imagem").removeClass("d-none");
+
+                    $("#conteudo-diretorio").attr("onclick", detalhesShow(response.conteudo));
+                    $("#conteudo-diretorio").html(response.conteudo.titulo);
+                    $("#conteudo-diretorio").removeClass("d-none");
+
+                    
+                    
+
                 }
             },
         });

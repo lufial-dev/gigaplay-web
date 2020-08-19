@@ -99,9 +99,10 @@
 </div>
 
 @include('modals.conteudo.view')
+@include('modals.conteudo.create')
 @include('modals.conteudo.detalhes')
 @include('modals.conteudo.player')
-@include('modals.conteudo.create')
+
 
 @include('modals.servico.view')
 

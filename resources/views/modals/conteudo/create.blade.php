@@ -61,18 +61,21 @@
 
                 <div class="row">
                     <div class="col">
-                        <label id="label-conteudo">Conteúdo:</label>
-                        <input class="form-control p-1" type="file" name="conteudo"  id="conteudo-input-diretorio" disabled/>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col">
                         <label id="label-conteudo">Imagem:</label>
                         <img id="conteudo-imagem" class="d-none m-2" src="" width="100px"/>
                         <input class="form-control p-1" type="file" name="imagem"  id="conteudo-input-imagem" disabled/>
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label id="label-conteudo">Conteúdo:</label>
+                        <a href="d-none" id="conteudo-diretorio" class="" data-toggle="modal" data-target=".detalhes-modal"></a>
+                        <input class="form-control p-1" type="file" name="conteudo"  id="conteudo-input-diretorio" disabled/>
+                    </div>
+                </div>
+
+               
             
             </div>
       
